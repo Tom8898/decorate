@@ -1,25 +1,20 @@
-import Header from './components/Header'
-import Hero from './components/Hero'
-import Intro from './components/Intro'
-import ProductRange from './components/ProductRange'
-import Inspire from './components/Inspire'
-import ShowroomCTA from './components/ShowroomCTA'
-import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import SuavePolishedPlaster from './pages/SuavePolishedPlaster'
 import './App.css'
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Intro />
-        <ProductRange />
-        <Inspire />
-        <ShowroomCTA />
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route
+          path="suave-polished-plaster"
+          element={<SuavePolishedPlaster />}
+        />
+      </Route>
+    </Routes>
   )
 }
 

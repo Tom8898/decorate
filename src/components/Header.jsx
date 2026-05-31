@@ -1,30 +1,49 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const NAV = [
   {
     label: 'Product Range',
     items: [
-      'Suave Polished Plaster',
-      'SuaveStone Polished Plaster',
-      'Bone China Polished Plaster',
-      'SuaveCrete Polished Plaster',
-      'Interact Panel System',
-      'Duro Clay Plaster',
+      { label: 'Suave Polished Plaster', to: '/suave-polished-plaster' },
+      { label: 'SuaveStone Polished Plaster' },
+      { label: 'Bone China Polished Plaster' },
+      { label: 'SuaveCrete Polished Plaster' },
+      { label: 'Interact Panel System' },
+      { label: 'Duro Clay Plaster' },
     ],
   },
-  { label: 'Projects', items: ['Commercial', 'Residential'] },
+  {
+    label: 'Projects',
+    items: [{ label: 'Commercial' }, { label: 'Residential' }],
+  },
   {
     label: 'Colour Library',
     items: [
-      'Suave Colour Range',
-      'SuaveStone Colour Range',
-      'Suave Two-tone Colour Range',
+      { label: 'Suave Colour Range' },
+      { label: 'SuaveStone Colour Range' },
+      { label: 'Suave Two-tone Colour Range' },
     ],
   },
   { label: 'FAQ' },
   { label: 'Contact us' },
   { label: 'Journal' },
 ]
+
+function NavLink({ to, children, onClick }) {
+  if (to) {
+    return (
+      <Link to={to} onClick={onClick}>
+        {children}
+      </Link>
+    )
+  }
+  return (
+    <a href="#" onClick={onClick}>
+      {children}
+    </a>
+  )
+}
 
 function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -37,24 +56,30 @@ function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const close = () => setOpen(false)
+
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container site-header__inner">
-        <a className="brand" href="#top">
+        <Link className="brand" to="/" onClick={close}>
           Ambitec
-        </a>
+        </Link>
 
         <nav className={`primary-nav ${open ? 'is-open' : ''}`}>
           <ul>
             {NAV.map((entry) => (
               <li key={entry.label} className={entry.items ? 'has-sub' : ''}>
-                <a href="#">{entry.label}</a>
+                <NavLink to={entry.to} onClick={close}>
+                  {entry.label}
+                </NavLink>
                 {entry.items && (
                   <div className="submenu">
                     <ul>
                       {entry.items.map((item) => (
-                        <li key={item}>
-                          <a href="#">{item}</a>
+                        <li key={item.label}>
+                          <NavLink to={item.to} onClick={close}>
+                            {item.label}
+                          </NavLink>
                         </li>
                       ))}
                     </ul>
