@@ -1,10 +1,33 @@
+import { useEffect, useRef } from 'react'
 import heroVideo from '../assets/Home_VImeo_4_pp.mp4'
 
 function Hero() {
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    video.muted = true
+    video.defaultMuted = true
+
+    const tryPlay = () => {
+      const promise = video.play()
+      if (promise && typeof promise.catch === 'function') {
+        promise.catch(() => {})
+      }
+    }
+
+    tryPlay()
+    video.addEventListener('canplay', tryPlay)
+    return () => video.removeEventListener('canplay', tryPlay)
+  }, [])
+
   return (
     <section className="hero" id="top">
       <div className="hero__media" aria-hidden="true">
         <video
+          ref={videoRef}
           className="hero__video"
           src={heroVideo}
           autoPlay
