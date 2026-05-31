@@ -6,7 +6,10 @@ const NAV = [
     label: 'Product Range',
     items: [
       { label: 'Suave Polished Plaster', to: '/suave-polished-plaster' },
-      { label: 'SuaveStone Polished Plaster' },
+      {
+        label: 'SuaveStone Polished Plaster',
+        to: '/suavestone-polished-plaster',
+      },
       { label: 'Bone China Polished Plaster' },
       { label: 'SuaveCrete Polished Plaster' },
       { label: 'Interact Panel System' },
