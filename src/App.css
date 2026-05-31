@@ -704,8 +704,10 @@
     border-bottom: 1px solid var(--line);
   }
 
-  .submenu {
+  .submenu,
+  .has-sub:hover .submenu {
     position: static;
+    left: auto;
     transform: none;
     opacity: 1;
     visibility: visible;
