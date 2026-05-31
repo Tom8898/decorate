@@ -154,22 +154,113 @@
   border-bottom: 1px solid var(--line);
 }
 
-.textures__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.textures__carousel {
+  position: relative;
+}
+
+.textures__track {
+  display: flex;
   gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+
+.textures__track::-webkit-scrollbar {
+  display: none;
 }
 
 .texture {
+  flex: 0 0 calc((100% - 60px) / 4);
+  scroll-snap-align: start;
   border: 1px solid var(--line);
   background: var(--surface);
   overflow: hidden;
+}
+
+/* ---------- Carousel controls ---------- */
+.textures__controls {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.carousel-arrow {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--ink);
+  color: #f6f2ea;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel-arrow:hover {
+  background: var(--accent);
+}
+
+.carousel-arrow:active {
+  transform: scale(0.94);
+}
+
+@media (min-width: 721px) {
+  .textures__controls {
+    margin-top: 0;
+  }
+  .carousel-arrow {
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%);
+    z-index: 5;
+    box-shadow: 0 16px 36px -16px rgba(20, 18, 15, 0.6);
+  }
+  .carousel-arrow:active {
+    transform: translateY(-50%) scale(0.94);
+  }
+  .carousel-arrow.prev {
+    left: 14px;
+  }
+  .carousel-arrow.next {
+    right: 14px;
+  }
 }
 
 .texture__swatch {
   display: block;
   aspect-ratio: 4 / 3;
   position: relative;
+  overflow: hidden;
+}
+
+.texture__swatch img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.texture:hover .texture__swatch img {
+  transform: scale(1.05);
 }
 
 .texture h3 {
@@ -456,8 +547,8 @@
   .product-overview__samples .sample {
     flex: 1;
   }
-  .textures__grid {
-    grid-template-columns: repeat(3, 1fr);
+  .texture {
+    flex: 0 0 calc((100% - 20px) / 2);
   }
   .specs__row {
     grid-template-columns: 180px 1fr;
@@ -465,8 +556,8 @@
 }
 
 @media (max-width: 720px) {
-  .textures__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .texture {
+    flex: 0 0 100%;
   }
   .gallery__grid {
     grid-template-columns: 1fr;

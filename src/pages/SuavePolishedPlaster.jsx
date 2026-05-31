@@ -1,9 +1,16 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import suaveImg from '../assets/Suave Polished Plaster.webp'
 import suaveTwoToneImg from '../assets/suave/Suave Two-tone.webp'
 import suaveSampleImg from '../assets/suave/Suave.webp'
 import suaveMottledImg from '../assets/suave/Suave Mottled.webp'
+import traditionalImg from '../assets/suave/Traditional.webp'
+import pittedImg from '../assets/suave/Pitted.webp'
+import mottledImg from '../assets/suave/Mottled.webp'
+import stippledImg from '../assets/suave/Stippled.webp'
+import formworkImg from '../assets/suave/Formwork.webp'
+import embossedImg from '../assets/suave/Embossed.webp'
+import twoToneImg from '../assets/suave/Two-tone.webp'
 import './SuavePolishedPlaster.css'
 
 const SAMPLES = [
@@ -13,13 +20,13 @@ const SAMPLES = [
 ]
 
 const TEXTURES = [
-  { name: 'Traditional', tone: 'tex-1' },
-  { name: 'Pitted', tone: 'tex-2' },
-  { name: 'Mottled', tone: 'tex-3' },
-  { name: 'Stippled', tone: 'tex-4' },
-  { name: 'Formwork', tone: 'tex-5' },
-  { name: 'Embossed', tone: 'tex-6' },
-  { name: 'Two-tone', tone: 'tex-7' },
+  { name: 'Traditional', tone: 'tex-1', image: traditionalImg },
+  { name: 'Pitted', tone: 'tex-2', image: pittedImg },
+  { name: 'Mottled', tone: 'tex-3', image: mottledImg },
+  { name: 'Stippled', tone: 'tex-4', image: stippledImg },
+  { name: 'Formwork', tone: 'tex-5', image: formworkImg },
+  { name: 'Embossed', tone: 'tex-6', image: embossedImg },
+  { name: 'Two-tone', tone: 'tex-7', image: twoToneImg },
 ]
 
 const FAQS = [
@@ -67,6 +74,16 @@ const SPECS = [
 
 function SuavePolishedPlaster() {
   const [openFaq, setOpenFaq] = useState(0)
+  const trackRef = useRef(null)
+
+  const scrollTextures = (dir) => {
+    const track = trackRef.current
+    if (!track) return
+    const tile = track.querySelector('.texture')
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 20
+    const amount = tile ? tile.offsetWidth + gap : track.clientWidth * 0.8
+    track.scrollBy({ left: dir * amount, behavior: 'smooth' })
+  }
 
   return (
     <div className="product-page">
@@ -139,15 +156,45 @@ function SuavePolishedPlaster() {
         <div className="container">
           <header className="section-head">
             <p className="eyebrow">Suave textures &amp; finishes</p>
-            <h2>Six signature texture patterns</h2>
+            <h2>Suave textures & finishes</h2>
           </header>
-          <div className="textures__grid">
-            {TEXTURES.map((texture) => (
-              <article key={texture.name} className={`texture ${texture.tone}`}>
-                <span className="texture__swatch" aria-hidden="true" />
-                <h3>{texture.name}</h3>
-              </article>
-            ))}
+          <div className="textures__carousel">
+            <div className="textures__track" ref={trackRef}>
+              {TEXTURES.map((texture) => (
+                <article
+                  key={texture.name}
+                  className={`texture ${texture.tone}`}
+                >
+                  <span className="texture__swatch">
+                    <img src={texture.image} alt={texture.name} loading="lazy" />
+                  </span>
+                  <h3>{texture.name}</h3>
+                </article>
+              ))}
+            </div>
+
+            <div className="textures__controls">
+              <button
+                type="button"
+                className="carousel-arrow prev"
+                aria-label="Previous texture"
+                onClick={() => scrollTextures(-1)}
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M15 5l-7 7 7 7" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                className="carousel-arrow next"
+                aria-label="Next texture"
+                onClick={() => scrollTextures(1)}
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </section>
