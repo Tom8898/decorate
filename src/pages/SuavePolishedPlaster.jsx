@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import suaveImg from '../assets/Suave Polished Plaster.webp'
+import suaveTwoToneImg from '../assets/suave/Suave Two-tone.webp'
+import suaveSampleImg from '../assets/suave/Suave.webp'
+import suaveMottledImg from '../assets/suave/Suave Mottled.webp'
 import './SuavePolishedPlaster.css'
 
 const SAMPLES = [
-  { name: 'Suave Two-tone', tone: 'sw-1' },
-  { name: 'Suave', tone: 'sw-2' },
-  { name: 'Suave Mottled', tone: 'sw-3' },
+  { name: 'Suave Two-tone', tone: 'sw-1', image: suaveTwoToneImg },
+  { name: 'Suave', tone: 'sw-2', image: suaveSampleImg },
+  { name: 'Suave Mottled', tone: 'sw-3', image: suaveMottledImg },
 ]
 
 const TEXTURES = [
@@ -122,7 +125,9 @@ function SuavePolishedPlaster() {
           <div className="product-overview__samples">
             {SAMPLES.map((sample) => (
               <figure key={sample.name} className={`sample ${sample.tone}`}>
-                <span className="sample__swatch" aria-hidden="true" />
+                <span className="sample__swatch">
+                  <img src={sample.image} alt={sample.name} loading="lazy" />
+                </span>
                 <figcaption>{sample.name}</figcaption>
               </figure>
             ))}
