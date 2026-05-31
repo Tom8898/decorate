@@ -88,7 +88,7 @@ const SPECS = [
 ]
 
 function SuavePolishedPlaster() {
-  const [openFaq, setOpenFaq] = useState(0)
+  const [openFaq, setOpenFaq] = useState(-1)
   const trackRef = useRef(null)
 
   const scrollTextures = (dir) => {
