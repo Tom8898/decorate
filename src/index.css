@@ -1,0 +1,129 @@
+:root {
+  --bg: #f3efe8;
+  --bg-alt: #ece6dc;
+  --surface: #f8f5ef;
+  --ink: #1c1a17;
+  --ink-soft: #4a463f;
+  --muted: #8c857a;
+  --line: #ddd6c9;
+  --accent: #5b5346;
+  --plaster-1: #d8cfc0;
+  --plaster-2: #c5bba9;
+  --plaster-3: #b3a892;
+  --plaster-4: #8f8675;
+  --plaster-5: #6f6655;
+
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Jost', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  --maxw: 1240px;
+  --gutter: clamp(20px, 5vw, 72px);
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.08;
+  letter-spacing: 0.4px;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.btn--solid {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.btn--solid:hover {
+  background: transparent;
+  color: var(--ink);
+}
