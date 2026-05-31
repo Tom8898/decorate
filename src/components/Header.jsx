@@ -10,7 +10,10 @@ const NAV = [
         label: 'SuaveStone Polished Plaster',
         to: '/suavestone-polished-plaster',
       },
-      { label: 'Bone China Polished Plaster' },
+      {
+        label: 'Bone China Polished Plaster',
+        to: '/bone-china-polished-plaster',
+      },
       { label: 'SuaveCrete Polished Plaster' },
       { label: 'Interact Panel System' },
       { label: 'Duro Clay Plaster' },

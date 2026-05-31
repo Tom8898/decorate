@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import SuavePolishedPlaster from './pages/SuavePolishedPlaster'
 import SuaveStonePolishedPlaster from './pages/SuaveStonePolishedPlaster'
+import BoneChinaPolishedPlaster from './pages/BoneChinaPolishedPlaster'
 import './App.css'
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
         <Route
           path="suavestone-polished-plaster"
           element={<SuaveStonePolishedPlaster />}
+        />
+        <Route
+          path="bone-china-polished-plaster"
+          element={<BoneChinaPolishedPlaster />}
         />
       </Route>
     </Routes>
