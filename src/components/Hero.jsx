@@ -20,7 +20,30 @@ function Hero() {
 
     tryPlay()
     video.addEventListener('canplay', tryPlay)
-    return () => video.removeEventListener('canplay', tryPlay)
+
+    // 微信内置浏览器需等 JSBridge 就绪后才允许自动播放
+    const onBridgeReady = () => tryPlay()
+    if (window.WeixinJSBridge) {
+      tryPlay()
+    } else {
+      document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false)
+    }
+
+    // 兜底：首次用户手势（触摸/点击）时解锁播放
+    const onUserGesture = () => {
+      tryPlay()
+      document.removeEventListener('touchstart', onUserGesture)
+      document.removeEventListener('click', onUserGesture)
+    }
+    document.addEventListener('touchstart', onUserGesture, { once: true })
+    document.addEventListener('click', onUserGesture, { once: true })
+
+    return () => {
+      video.removeEventListener('canplay', tryPlay)
+      document.removeEventListener('WeixinJSBridgeReady', onBridgeReady, false)
+      document.removeEventListener('touchstart', onUserGesture)
+      document.removeEventListener('click', onUserGesture)
+    }
   }, [])
 
   return (
@@ -35,6 +58,10 @@ function Hero() {
           muted
           playsInline
           preload="auto"
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          x5-video-player-type="h5-page"
+          x5-video-player-fullscreen="false"
         />
       </div>
       <div className="container hero__inner">
