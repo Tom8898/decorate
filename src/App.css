@@ -114,6 +114,24 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Light header text while over the hero (top of page, not scrolled) */
+.site-header:not(.is-scrolled) .brand {
+  color: #f6f2ea;
+}
+
+.site-header:not(.is-scrolled) .burger span {
+  background: #f6f2ea;
+}
+
+@media (min-width: 861px) {
+  .site-header:not(.is-scrolled) .primary-nav > ul > li > a {
+    color: #efe9df;
+  }
+  .site-header:not(.is-scrolled) .primary-nav > ul > li > a:hover {
+    color: #fff;
+  }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -137,19 +155,24 @@
     linear-gradient(135deg, #cfc6b6 0%, #b3a892 45%, #8f8675 100%);
 }
 
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .hero__media::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(
-      62deg,
-      rgba(255, 255, 255, 0.05) 0px,
-      rgba(255, 255, 255, 0.05) 2px,
-      rgba(0, 0, 0, 0.025) 3px,
-      rgba(0, 0, 0, 0) 9px
-    );
-  mix-blend-mode: overlay;
+  background: linear-gradient(
+    to top,
+    rgba(20, 18, 15, 0.62) 0%,
+    rgba(20, 18, 15, 0.42) 50%,
+    rgba(20, 18, 15, 0.5) 100%
+  );
 }
 
 .hero__inner {
