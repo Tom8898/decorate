@@ -18,7 +18,7 @@ const NAV = [
         label: 'SuaveCrete Polished Plaster',
         to: '/suavecrete-polished-plaster',
       },
-      { label: 'Interact Panel System' },
+      { label: 'Interact Panel System', to: '/interact-panel-system' },
       { label: 'Duro Clay Plaster' },
     ],
   },

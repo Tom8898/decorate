@@ -5,6 +5,7 @@ import SuavePolishedPlaster from './pages/SuavePolishedPlaster'
 import SuaveStonePolishedPlaster from './pages/SuaveStonePolishedPlaster'
 import BoneChinaPolishedPlaster from './pages/BoneChinaPolishedPlaster'
 import SuaveCretePolishedPlaster from './pages/SuaveCretePolishedPlaster'
+import InteractPanelSystem from './pages/InteractPanelSystem'
 import './App.css'
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
         <Route
           path="suavecrete-polished-plaster"
           element={<SuaveCretePolishedPlaster />}
+        />
+        <Route
+          path="interact-panel-system"
+          element={<InteractPanelSystem />}
         />
       </Route>
     </Routes>
