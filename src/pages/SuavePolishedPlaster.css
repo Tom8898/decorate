@@ -415,8 +415,23 @@
 
 .gallery__media {
   display: block;
+  position: relative;
   aspect-ratio: 3 / 4;
   border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.gallery__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery__item:hover .gallery__media img {
+  transform: scale(1.04);
 }
 
 .gallery__item figcaption {

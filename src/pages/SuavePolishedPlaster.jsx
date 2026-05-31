@@ -11,6 +11,9 @@ import stippledImg from '../assets/suave/Stippled.webp'
 import formworkImg from '../assets/suave/Formwork.webp'
 import embossedImg from '../assets/suave/Embossed.webp'
 import twoToneImg from '../assets/suave/Two-tone.webp'
+import galleryCeilingImg from '../assets/suave/Suave in a grey two-tone on a ceiling.webp'
+import gallerySealerImg from '../assets/suave/Suave with clear sealer in powder-room.webp'
+import galleryStoneWhiteImg from '../assets/suave/Suave in Stone White captures the light.webp'
 import './SuavePolishedPlaster.css'
 
 const SAMPLES = [
@@ -53,9 +56,21 @@ const FAQS = [
 ]
 
 const GALLERY = [
-  { caption: 'Suave in a grey two-tone on a ceiling', tone: 'g-1' },
-  { caption: 'Suave with clear sealer in powder-room', tone: 'g-2' },
-  { caption: 'Suave in Stone White captures the light', tone: 'g-3' },
+  {
+    caption: 'Suave in a grey two-tone on a ceiling',
+    tone: 'g-1',
+    image: galleryCeilingImg,
+  },
+  {
+    caption: 'Suave with clear sealer in powder-room',
+    tone: 'g-2',
+    image: gallerySealerImg,
+  },
+  {
+    caption: 'Suave in Stone White captures the light',
+    tone: 'g-3',
+    image: galleryStoneWhiteImg,
+  },
 ]
 
 const SPECS = [
@@ -236,7 +251,9 @@ function SuavePolishedPlaster() {
           <div className="gallery__grid">
             {GALLERY.map((item) => (
               <figure key={item.caption} className={`gallery__item ${item.tone}`}>
-                <span className="gallery__media" aria-hidden="true" />
+                <span className="gallery__media">
+                  <img src={item.image} alt={item.caption} loading="lazy" />
+                </span>
                 <figcaption>{item.caption}</figcaption>
               </figure>
             ))}
