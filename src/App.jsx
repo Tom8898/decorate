@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import SuavePolishedPlaster from './pages/SuavePolishedPlaster'
 import SuaveStonePolishedPlaster from './pages/SuaveStonePolishedPlaster'
 import BoneChinaPolishedPlaster from './pages/BoneChinaPolishedPlaster'
+import SuaveCretePolishedPlaster from './pages/SuaveCretePolishedPlaster'
 import './App.css'
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
         <Route
           path="bone-china-polished-plaster"
           element={<BoneChinaPolishedPlaster />}
+        />
+        <Route
+          path="suavecrete-polished-plaster"
+          element={<SuaveCretePolishedPlaster />}
         />
       </Route>
     </Routes>
