@@ -6,6 +6,7 @@ import SuaveStonePolishedPlaster from './pages/SuaveStonePolishedPlaster'
 import BoneChinaPolishedPlaster from './pages/BoneChinaPolishedPlaster'
 import SuaveCretePolishedPlaster from './pages/SuaveCretePolishedPlaster'
 import InteractPanelSystem from './pages/InteractPanelSystem'
+import DuroClayPlaster from './pages/DuroClayPlaster'
 import './App.css'
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           path="interact-panel-system"
           element={<InteractPanelSystem />}
         />
+        <Route path="duro-clay-plaster" element={<DuroClayPlaster />} />
       </Route>
     </Routes>
   )
