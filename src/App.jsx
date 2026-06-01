@@ -12,6 +12,7 @@ import AmbitecShowroom from './pages/AmbitecShowroom'
 import Residential from './pages/Residential'
 import SuaveColourRange from './pages/SuaveColourRange'
 import SuaveStoneColourRange from './pages/SuaveStoneColourRange'
+import SuaveTwoToneColourRange from './pages/SuaveTwoToneColourRange'
 import './App.css'
 
 function App() {
@@ -50,6 +51,10 @@ function App() {
         <Route
           path="suavestone-colour-range"
           element={<SuaveStoneColourRange />}
+        />
+        <Route
+          path="suave-twotone-colour-range"
+          element={<SuaveTwoToneColourRange />}
         />
       </Route>
     </Routes>
