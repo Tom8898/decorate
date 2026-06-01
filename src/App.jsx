@@ -10,6 +10,7 @@ import DuroClayPlaster from './pages/DuroClayPlaster'
 import Commercial from './pages/Commercial'
 import AmbitecShowroom from './pages/AmbitecShowroom'
 import Residential from './pages/Residential'
+import SuaveColourRange from './pages/SuaveColourRange'
 import './App.css'
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           element={<AmbitecShowroom />}
         />
         <Route path="residential" element={<Residential />} />
+        <Route path="suave-colour-range" element={<SuaveColourRange />} />
       </Route>
     </Routes>
   )
