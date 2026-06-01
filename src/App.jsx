@@ -7,6 +7,8 @@ import BoneChinaPolishedPlaster from './pages/BoneChinaPolishedPlaster'
 import SuaveCretePolishedPlaster from './pages/SuaveCretePolishedPlaster'
 import InteractPanelSystem from './pages/InteractPanelSystem'
 import DuroClayPlaster from './pages/DuroClayPlaster'
+import Commercial from './pages/Commercial'
+import AmbitecShowroom from './pages/AmbitecShowroom'
 import './App.css'
 
 function App() {
@@ -35,6 +37,11 @@ function App() {
           element={<InteractPanelSystem />}
         />
         <Route path="duro-clay-plaster" element={<DuroClayPlaster />} />
+        <Route path="commercial" element={<Commercial />} />
+        <Route
+          path="commercial/ambitec-showroom"
+          element={<AmbitecShowroom />}
+        />
       </Route>
     </Routes>
   )
