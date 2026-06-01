@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import heroVideo from '../assets/Home_VImeo_4_pp.mp4'
+import heroPoster from '../assets/hero-poster.jpg'
 
 function Hero() {
   const videoRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
@@ -18,15 +20,24 @@ function Hero() {
       }
     }
 
+    const onPlaying = () => setIsPlaying(true)
+
     tryPlay()
     video.addEventListener('canplay', tryPlay)
+    video.addEventListener('playing', onPlaying)
 
-    // 微信内置浏览器需等 JSBridge 就绪后才允许自动播放
-    const onBridgeReady = () => tryPlay()
-    if (window.WeixinJSBridge) {
-      tryPlay()
+    // 微信内置浏览器：需在 JSBridge 就绪后用 getNetworkType invoke 解锁播放
+    const wxReady = () => {
+      if (window.WeixinJSBridge && window.WeixinJSBridge.invoke) {
+        window.WeixinJSBridge.invoke('getNetworkType', {}, tryPlay)
+      } else {
+        tryPlay()
+      }
+    }
+    if (window.WeixinJSBridge && window.WeixinJSBridge.invoke) {
+      wxReady()
     } else {
-      document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false)
+      document.addEventListener('WeixinJSBridgeReady', wxReady, false)
     }
 
     // 兜底：首次用户手势（触摸/点击）时解锁播放
@@ -40,7 +51,8 @@ function Hero() {
 
     return () => {
       video.removeEventListener('canplay', tryPlay)
-      document.removeEventListener('WeixinJSBridgeReady', onBridgeReady, false)
+      video.removeEventListener('playing', onPlaying)
+      document.removeEventListener('WeixinJSBridgeReady', wxReady, false)
       document.removeEventListener('touchstart', onUserGesture)
       document.removeEventListener('click', onUserGesture)
     }
@@ -53,6 +65,7 @@ function Hero() {
           ref={videoRef}
           className="hero__video"
           src={heroVideo}
+          poster={heroPoster}
           autoPlay
           loop
           muted
@@ -62,6 +75,11 @@ function Hero() {
           x5-playsinline="true"
           x5-video-player-type="h5-page"
           x5-video-player-fullscreen="false"
+        />
+        <img
+          className={`hero__poster${isPlaying ? ' is-hidden' : ''}`}
+          src={heroPoster}
+          alt=""
         />
       </div>
       <div className="container hero__inner">
