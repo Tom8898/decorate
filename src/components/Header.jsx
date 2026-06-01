@@ -24,7 +24,10 @@ const NAV = [
   },
   {
     label: 'Projects',
-    items: [{ label: 'Commercial', to: '/commercial' }, { label: 'Residential' }],
+    items: [
+      { label: 'Commercial', to: '/commercial' },
+      { label: 'Residential', to: '/residential' },
+    ],
   },
   {
     label: 'Colour Library',

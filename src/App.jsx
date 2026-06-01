@@ -9,6 +9,7 @@ import InteractPanelSystem from './pages/InteractPanelSystem'
 import DuroClayPlaster from './pages/DuroClayPlaster'
 import Commercial from './pages/Commercial'
 import AmbitecShowroom from './pages/AmbitecShowroom'
+import Residential from './pages/Residential'
 import './App.css'
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           path="commercial/ambitec-showroom"
           element={<AmbitecShowroom />}
         />
+        <Route path="residential" element={<Residential />} />
       </Route>
     </Routes>
   )
