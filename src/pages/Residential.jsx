@@ -82,13 +82,9 @@ function Residential() {
   return (
     <div className="product-page">
       <section className="product-hero">
-        <div
-          className="product-hero__media"
-          style={{
-            background:
-              'linear-gradient(160deg, #cfc5b3 0%, #9c907a 55%, #5f5747 100%)',
-          }}
-        />
+        <div className="product-hero__media">
+          <img src={mountainRetreatImg} alt="Ambitec residential projects" />
+        </div>
         <div className="container product-hero__inner">
           <nav className="breadcrumb">
             <Link to="/">Home</Link>
