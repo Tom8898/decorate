@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Playwright MCP temporary output (screenshots, snapshots, console logs)
+.playwright-mcp/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

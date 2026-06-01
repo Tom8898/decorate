@@ -1,37 +1,62 @@
 import { Link } from 'react-router-dom'
 import '../components/ProductDetail.css'
+import almorahImg from '../assets/residential/almorah-residence.webp'
+import lakeRidgeImg from '../assets/residential/lake-ridge-house.webp'
+import huruhiImg from '../assets/residential/huruhi.webp'
+import mooneyImg from '../assets/residential/mooney-residence.webp'
+import oneSaintStephensImg from '../assets/residential/one-saint-stephens.webp'
+import herneBayBathroomImg from '../assets/residential/herne-bay-bathroom.webp'
+import skeltonImg from '../assets/residential/skelton-studio-house.webp'
+import westmereImg from '../assets/residential/westmere-house.webp'
+import parklaneImg from '../assets/residential/parklane.webp'
+import upperWattImg from '../assets/residential/upper-watt-street.webp'
+import redBeachImg from '../assets/residential/red-beach-house.webp'
+import valleyImg from '../assets/residential/valley-house.webp'
+import englandStImg from '../assets/residential/england-street.webp'
+import islandBayImg from '../assets/residential/island-bay-house.webp'
+import waipuImg from '../assets/residential/waipu-house.webp'
+import winscombeImg from '../assets/residential/winscombe-renovation.webp'
+import moaRdImg from '../assets/residential/moa-rd.webp'
+import kiekieImg from '../assets/residential/kiekie-house.webp'
+import villaExtensionImg from '../assets/residential/villa-extension.webp'
+import herneBayHouseImg from '../assets/residential/herne-bay-house.webp'
+import mountainRetreatImg from '../assets/residential/mountain-retreat.webp'
+import ponsonbyVillaImg from '../assets/residential/ponsonby-villa.webp'
+import remueraImg from '../assets/residential/remuera-house.webp'
+import kanukaImg from '../assets/residential/kanuka-house.webp'
 
-const PROJECT_NAMES = [
-  'Almorah Residence',
-  'Lake Ridge House',
-  'Huruhi',
-  'Mooney Residence',
-  'One Saint Stephens',
-  'Herne Bay Bathroom',
-  'Skelton Studio House',
-  'Westmere House',
-  'Parklane',
-  'Upper Watt Street',
-  'Red Beach House',
-  'Valley House',
-  'England Street',
-  'Island Bay House',
-  'Waipu House',
-  'Winscombe Renovation',
-  'Moa Rd',
-  'Kiekie House',
-  'Villa Extension',
-  'Herne Bay House',
-  'Mountain Retreat',
-  'Ponsonby Villa',
-  'Remuera House',
-  'Kanuka House',
+const PROJECT_DATA = [
+  ['Almorah Residence', almorahImg],
+  ['Lake Ridge House', lakeRidgeImg],
+  ['Huruhi', huruhiImg],
+  ['Mooney Residence', mooneyImg],
+  ['One Saint Stephens', oneSaintStephensImg],
+  ['Herne Bay Bathroom', herneBayBathroomImg],
+  ['Skelton Studio House', skeltonImg],
+  ['Westmere House', westmereImg],
+  ['Parklane', parklaneImg],
+  ['Upper Watt Street', upperWattImg],
+  ['Red Beach House', redBeachImg],
+  ['Valley House', valleyImg],
+  ['England Street', englandStImg],
+  ['Island Bay House', islandBayImg],
+  ['Waipu House', waipuImg],
+  ['Winscombe Renovation', winscombeImg],
+  ['Moa Rd', moaRdImg],
+  ['Kiekie House', kiekieImg],
+  ['Villa Extension', villaExtensionImg],
+  ['Herne Bay House', herneBayHouseImg],
+  ['Mountain Retreat', mountainRetreatImg],
+  ['Ponsonby Villa', ponsonbyVillaImg],
+  ['Remuera House', remueraImg],
+  ['Kanuka House', kanukaImg],
 ]
 
-const PROJECTS = PROJECT_NAMES.map((title, i) => ({
+const PROJECTS = PROJECT_DATA.map(([title, image], i) => ({
   title,
   sub: 'Residential',
   tone: `proj-${(i % 3) + 1}`,
+  image,
 }))
 
 function ProjectCard({ project }) {
