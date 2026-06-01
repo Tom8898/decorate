@@ -33,7 +33,7 @@ const NAV = [
     label: 'Colour Library',
     items: [
       { label: 'Suave Colour Range', to: '/suave-colour-range' },
-      { label: 'SuaveStone Colour Range' },
+      { label: 'SuaveStone Colour Range', to: '/suavestone-colour-range' },
       { label: 'Suave Two-tone Colour Range' },
     ],
   },
