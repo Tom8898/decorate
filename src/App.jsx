@@ -13,6 +13,11 @@ import Residential from './pages/Residential'
 import SuaveColourRange from './pages/SuaveColourRange'
 import SuaveStoneColourRange from './pages/SuaveStoneColourRange'
 import SuaveTwoToneColourRange from './pages/SuaveTwoToneColourRange'
+import Installation from './pages/Installation'
+import Faq from './pages/Faq'
+import ContactUs from './pages/ContactUs'
+import Journal from './pages/Journal'
+import JournalPost from './pages/JournalPost'
 import './App.css'
 
 function App() {
@@ -56,6 +61,11 @@ function App() {
           path="suave-twotone-colour-range"
           element={<SuaveTwoToneColourRange />}
         />
+        <Route path="installation" element={<Installation />} />
+        <Route path="faq" element={<Faq />} />
+        <Route path="contact-us" element={<ContactUs />} />
+        <Route path="journal" element={<Journal />} />
+        <Route path="journal/:slug" element={<JournalPost />} />
       </Route>
     </Routes>
   )

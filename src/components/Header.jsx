@@ -40,9 +40,10 @@ const NAV = [
       },
     ],
   },
-  { label: 'FAQ' },
-  { label: 'Contact us' },
-  { label: 'Journal' },
+  { label: 'Installation', to: '/installation' },
+  { label: 'FAQ', to: '/faq' },
+  { label: 'Contact us', to: '/contact-us' },
+  { label: 'Journal', to: '/journal' },
 ]
 
 function NavLink({ to, children, onClick }) {
