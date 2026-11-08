@@ -11,7 +11,7 @@ const NAV = [
       { label: 'Residential', to: '/residential' },
     ],
   },
-  { label: 'Colors', to: '/suave-colour-range' },
+  { label: 'Colours', to: '/suave-colour-range' },
   { label: 'FAQ', to: '/faq' },
   { label: 'Contact us', to: '/contact-us' },
 ]
