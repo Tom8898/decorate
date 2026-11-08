@@ -18,6 +18,7 @@ import Faq from './pages/Faq'
 import ContactUs from './pages/ContactUs'
 import Journal from './pages/Journal'
 import JournalPost from './pages/JournalPost'
+import TestProducts from './pages/TestProducts'
 import './App.css'
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
           element={<SuaveTwoToneColourRange />}
         />
         <Route path="installation" element={<Installation />} />
+        <Route path="products" element={<TestProducts />} />
         <Route path="faq" element={<Faq />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="journal" element={<Journal />} />

@@ -1,27 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../assets/homelogo/crafted-surface-logo.png'
 
 const NAV = [
-  {
-    label: 'Product Range',
-    items: [
-      { label: 'Suave Polished Plaster', to: '/suave-polished-plaster' },
-      {
-        label: 'SuaveStone Polished Plaster',
-        to: '/suavestone-polished-plaster',
-      },
-      {
-        label: 'Bone China Polished Plaster',
-        to: '/bone-china-polished-plaster',
-      },
-      {
-        label: 'SuaveCrete Polished Plaster',
-        to: '/suavecrete-polished-plaster',
-      },
-      { label: 'Interact Panel System', to: '/interact-panel-system' },
-      { label: 'Duro Clay Plaster', to: '/duro-clay-plaster' },
-    ],
-  },
+  { label: 'Products', to: '/products' },
   {
     label: 'Projects',
     items: [
@@ -29,21 +11,9 @@ const NAV = [
       { label: 'Residential', to: '/residential' },
     ],
   },
-  {
-    label: 'Colour Library',
-    items: [
-      { label: 'Suave Colour Range', to: '/suave-colour-range' },
-      { label: 'SuaveStone Colour Range', to: '/suavestone-colour-range' },
-      {
-        label: 'Suave Two-tone Colour Range',
-        to: '/suave-twotone-colour-range',
-      },
-    ],
-  },
-  { label: 'Installation', to: '/installation' },
+  { label: 'Colors', to: '/suave-colour-range' },
   { label: 'FAQ', to: '/faq' },
   { label: 'Contact us', to: '/contact-us' },
-  { label: 'Journal', to: '/journal' },
 ]
 
 function NavLink({ to, children, onClick }) {
@@ -77,8 +47,8 @@ function Header() {
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container site-header__inner">
-        <Link className="brand" to="/" onClick={close}>
-          Ambitec
+        <Link className="brand brand--logo" to="/" onClick={close}>
+          <img src={logo} alt="Crafted Surface" />
         </Link>
 
         <nav className={`primary-nav ${open ? 'is-open' : ''}`}>

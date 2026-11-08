@@ -42,7 +42,7 @@ function ProductDetail({ data }) {
           <nav className="breadcrumb">
             <Link to="/">Home</Link>
             <span>/</span>
-            <span>Product Range</span>
+            <Link to="/products">Products</Link>
             <span>/</span>
             <span className="breadcrumb__current">{name}</span>
           </nav>

@@ -35,6 +35,17 @@
   font-size: 34px;
 }
 
+.brand--logo {
+  display: flex;
+  align-items: center;
+}
+
+.brand--logo img {
+  display: block;
+  height: 44px;
+  width: auto;
+}
+
 .primary-nav > ul {
   display: flex;
   align-items: center;
@@ -783,6 +794,9 @@
 }
 
 @media (max-width: 620px) {
+  .brand--logo img {
+    height: 34px;
+  }
   .products__grid,
   .inspire__grid,
   .footer__grid {
